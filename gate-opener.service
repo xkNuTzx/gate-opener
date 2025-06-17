@@ -1,0 +1,13 @@
+[Unit]
+Description=Gate Opener AI Service
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/gate-opener
+ExecStart=/home/pi/gate-opener/venv/bin/python3 inference.py
+Restart=always
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
